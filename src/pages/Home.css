@@ -1,0 +1,242 @@
+.welcome-section {
+  margin-bottom: 1.5rem;
+}
+
+.welcome-section h2 {
+  margin-bottom: 0.5rem;
+}
+
+.sos-card {
+  margin-bottom: 1rem;
+}
+
+.sos-button {
+  padding: 1rem;
+  font-weight: bold;
+  height: 60px;
+}
+
+.action-card {
+  height: 100%;
+  margin: 8px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.action-card:active {
+  transform: scale(0.98);
+}
+
+.action-card ion-card-content {
+  padding: 16px;
+}
+
+.action-icon {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.action-card h3 {
+  margin: 8px 0 4px;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--ion-color-dark);
+}
+
+.action-card p {
+  margin: 0;
+  font-size: 0.9em;
+  color: var(--ion-color-medium);
+  line-height: 1.4;
+}
+
+.status-card {
+  margin-top: 1.5rem;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.status-icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.status-info {
+  flex: 1;
+}
+
+.status-label {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.status-value {
+  color: var(--ion-color-medium);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .settings-icon {
+    background: var(--ion-color-dark-shade);
+  }
+
+  .settings-icon:hover {
+    background: var(--ion-color-dark);
+  }
+
+  .action-card {
+    --background: rgba(var(--ion-card-background-rgb), 0.8);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .action-card:active {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .action-card h3 {
+    color: var(--ion-color-light);
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.action-card {
+  animation: fadeIn 0.3s ease-out;
+}
+
+ion-grid {
+  --ion-grid-padding: 8px;
+}
+
+ion-col {
+  padding: 8px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-info ion-avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-details ion-title {
+  padding: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.user-details ion-text {
+  font-size: 14px;
+}
+
+.settings-icon {
+  padding: 8px;
+  border-radius: 50%;
+  background: var(--ion-color-light);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.settings-icon:hover {
+  background: var(--ion-color-light-shade);
+}
+
+.quick-actions-pull-tab {
+  background: var(--ion-background-color);
+  border-radius: 16px 16px 0 0;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 100;
+}
+
+.pull-indicator {
+  width: 36px;
+  height: 4px;
+  background: var(--ion-color-medium);
+  border-radius: 2px;
+  margin-bottom: 4px;
+}
+
+.quick-actions-pull-tab ion-icon {
+  font-size: 20px;
+  color: var(--ion-color-medium);
+}
+
+.quick-actions-pull-tab span {
+  font-size: 14px;
+  color: var(--ion-color-medium);
+}
+
+.quick-actions-modal {
+  --height: auto;
+  --border-radius: 16px 16px 0 0;
+}
+
+.quick-actions-modal::part(content) {
+  border-radius: 16px 16px 0 0;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .quick-actions-pull-tab {
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Loading state animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+/* Content spacing */
+ion-content {
+  --padding-bottom: calc(120px + env(safe-area-inset-bottom)); /* Space for panic button */
+}
+
+/* Status section */
+.status-section {
+  margin: 16px 0;
+}

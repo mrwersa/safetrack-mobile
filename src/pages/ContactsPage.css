@@ -1,0 +1,76 @@
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 16px;
+  color: var(--ion-color-medium);
+}
+
+ion-item {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  --background: var(--ion-color-light);
+  margin: 8px;
+  border-radius: 8px;
+}
+
+ion-item h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ion-color-dark);
+  margin: 0 0 4px 0;
+}
+
+ion-item p {
+  font-size: 14px;
+  color: var(--ion-color-medium);
+  margin: 0;
+}
+
+ion-item ion-icon {
+  font-size: 24px;
+  color: var(--ion-color-primary);
+}
+
+ion-fab {
+  margin-bottom: 16px;
+  margin-right: 16px;
+}
+
+ion-modal ion-content {
+  --padding: 16px;
+}
+
+ion-modal ion-item {
+  margin: 8px 0;
+}
+
+ion-modal ion-input {
+  --padding-start: 0;
+  margin-top: 8px;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.contact-actions ion-button {
+  --padding-start: 8px;
+  --padding-end: 8px;
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  ion-item {
+    --background: rgba(var(--ion-color-dark-rgb), 0.3);
+  }
+  
+  ion-item h2 {
+    color: var(--ion-color-light);
+  }
+} 

@@ -1,0 +1,151 @@
+.emergency-card {
+  margin: var(--safe-track-spacing-md);
+  border-radius: var(--safe-track-border-radius);
+  box-shadow: var(--safe-track-shadow-md);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.emergency-card.urgent {
+  animation: pulse 2s infinite;
+}
+
+.emergency-card.sos {
+  border-left: 4px solid var(--ion-color-danger);
+}
+
+.emergency-card.guide {
+  border-left: 4px solid var(--ion-color-primary);
+}
+
+.emergency-card.contact {
+  border-left: 4px solid var(--ion-color-success);
+}
+
+.emergency-card.location {
+  border-left: 4px solid var(--ion-color-warning);
+}
+
+.emergency-card ion-card-header {
+  padding: var(--safe-track-spacing-md);
+}
+
+.card-header-content {
+  display: flex;
+  align-items: center;
+  gap: var(--safe-track-spacing-md);
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ion-color-light);
+}
+
+.emergency-card.sos .icon-container {
+  background: rgba(var(--ion-color-danger-rgb), 0.1);
+  color: var(--ion-color-danger);
+}
+
+.emergency-card.guide .icon-container {
+  background: rgba(var(--ion-color-primary-rgb), 0.1);
+  color: var(--ion-color-primary);
+}
+
+.emergency-card.contact .icon-container {
+  background: rgba(var(--ion-color-success-rgb), 0.1);
+  color: var(--ion-color-success);
+}
+
+.emergency-card.location .icon-container {
+  background: rgba(var(--ion-color-warning-rgb), 0.1);
+  color: var(--ion-color-warning);
+}
+
+.text-container {
+  flex: 1;
+}
+
+.emergency-card ion-card-title {
+  font-size: var(--safe-track-font-size-lg);
+  font-weight: var(--safe-track-font-weight-bold);
+  margin: 0;
+}
+
+.emergency-card ion-card-subtitle {
+  font-size: var(--safe-track-font-size-sm);
+  margin: var(--safe-track-spacing-xs) 0 0;
+  opacity: 0.8;
+}
+
+.emergency-card ion-card-content {
+  padding: var(--safe-track-spacing-md);
+  font-size: var(--safe-track-font-size-md);
+  line-height: 1.5;
+}
+
+.card-actions {
+  padding: var(--safe-track-spacing-sm);
+  border-top: 1px solid var(--ion-border-color);
+}
+
+.emergency-card ion-button {
+  margin: 0;
+  font-weight: var(--safe-track-font-weight-medium);
+}
+
+/* Ripple effect */
+.ripple-parent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Animations */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: var(--safe-track-shadow-md);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: var(--safe-track-shadow-lg);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: var(--safe-track-shadow-md);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .emergency-card {
+    transition: none;
+  }
+  
+  .emergency-card.urgent {
+    animation: none;
+    border-width: 4px;
+  }
+}
+
+/* High contrast mode */
+@media (forced-colors: active) {
+  .emergency-card {
+    border: 2px solid ButtonBorder;
+  }
+  
+  .emergency-card.sos {
+    border-color: Mark;
+  }
+  
+  .icon-container {
+    border: 1px solid currentColor;
+  }
+} 

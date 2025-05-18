@@ -1,0 +1,53 @@
+.emergency-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.emergency-timer {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.sos-button {
+  height: 80px;
+  margin: 2rem 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.cancel-button {
+  margin: 1.5rem 0;
+  height: 60px;
+  font-weight: bold;
+}
+
+.emergency-textarea {
+  border: 1px solid var(--ion-color-light);
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+.message-card {
+  margin: 1rem 0;
+}
+
+.info-card {
+  margin-top: 1.5rem;
+}
+
+.info-header {
+  display: flex;
+  align-items: center;
+}
+
+.info-header ion-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  color: var(--ion-color-primary);
+}
+
+.emergency-active, .emergency-inactive {
+  display: flex;
+  flex-direction: column;
+}

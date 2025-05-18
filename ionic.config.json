@@ -1,0 +1,8 @@
+{
+  "name": "safetrack-mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite",
+  "id": "8bf98aae"
+}

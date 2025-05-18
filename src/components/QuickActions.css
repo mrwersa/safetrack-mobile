@@ -1,0 +1,157 @@
+.quick-actions {
+  background: var(--ion-background-color);
+  border-radius: var(--safe-track-border-radius) var(--safe-track-border-radius) 0 0;
+  overflow: hidden;
+  box-shadow: var(--safe-track-shadow-lg);
+}
+
+.quick-actions-header {
+  padding: var(--safe-track-spacing-md);
+  border-bottom: 1px solid var(--ion-border-color);
+}
+
+.quick-actions-header h2 {
+  margin: 0;
+  font-size: var(--safe-track-font-size-md);
+  font-weight: var(--safe-track-font-weight-medium);
+}
+
+.quick-action-item {
+  --padding-start: var(--safe-track-spacing-md);
+  --padding-end: var(--safe-track-spacing-md);
+  --padding-top: var(--safe-track-spacing-md);
+  --padding-bottom: var(--safe-track-spacing-md);
+  --background-activated: var(--ion-color-light);
+  position: relative;
+}
+
+.quick-action-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--ion-color-light);
+  margin-right: var(--safe-track-spacing-md);
+}
+
+.quick-action-item.active .quick-action-icon {
+  background: rgba(var(--ion-color-primary-rgb), 0.1);
+}
+
+.quick-action-item.warning .quick-action-icon {
+  background: rgba(var(--ion-color-warning-rgb), 0.1);
+}
+
+.quick-action-item ion-label h3 {
+  font-size: var(--safe-track-font-size-md);
+  font-weight: var(--safe-track-font-weight-medium);
+  margin: 0 0 var(--safe-track-spacing-xs);
+}
+
+.quick-action-item ion-label p {
+  font-size: var(--safe-track-font-size-sm);
+  color: var(--ion-color-medium);
+  margin: 0;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  margin-left: var(--safe-track-spacing-md);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ion-color-medium);
+}
+
+.status-indicator.active .status-dot {
+  background: var(--ion-color-success);
+  animation: pulse-dot 2s infinite;
+}
+
+.status-indicator.warning .status-dot {
+  background: var(--ion-color-warning);
+}
+
+.status-indicator.inactive .status-dot {
+  background: var(--ion-color-medium);
+}
+
+.quick-actions-footer {
+  padding: var(--safe-track-spacing-md);
+  background: var(--ion-color-light);
+}
+
+.status-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: var(--safe-track-spacing-xs);
+  font-size: var(--safe-track-font-size-sm);
+  color: var(--ion-color-medium);
+}
+
+.status-item ion-icon {
+  font-size: 16px;
+}
+
+/* Ripple effect */
+.ripple-parent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Animations */
+@keyframes pulse-dot {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .status-indicator.active .status-dot {
+    animation: none;
+  }
+}
+
+/* High contrast mode */
+@media (forced-colors: active) {
+  .quick-action-icon {
+    border: 1px solid ButtonBorder;
+  }
+
+  .status-dot {
+    border: 1px solid currentColor;
+  }
+
+  .status-indicator.active .status-dot {
+    background: Highlight;
+  }
+
+  .status-indicator.warning .status-dot {
+    background: Mark;
+  }
+} 

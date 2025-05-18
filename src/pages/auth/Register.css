@@ -1,0 +1,14 @@
+.register-container {
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+.register-button {
+  margin-top: 1.5rem;
+}
+
+.error-message {
+  font-size: 0.8rem;
+  padding-left: 1rem;
+  padding-top: 0.3rem;
+}

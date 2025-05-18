@@ -1,0 +1,58 @@
+.menu-header {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--ion-color-light);
+  border-bottom: 1px solid var(--ion-color-light-shade);
+}
+
+.menu-header ion-avatar {
+  width: 64px;
+  height: 64px;
+  border: 2px solid var(--ion-color-primary);
+}
+
+.menu-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ion-color-dark);
+}
+
+.menu-header p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--ion-color-medium);
+}
+
+ion-menu ion-content {
+  --background: var(--ion-color-light);
+}
+
+ion-menu ion-item {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --min-height: 48px;
+  margin: 4px 8px;
+  border-radius: 8px;
+  --background: transparent;
+  --background-hover: var(--ion-color-light-shade);
+  --background-activated: var(--ion-color-light-shade);
+}
+
+ion-menu ion-item ion-icon {
+  color: var(--ion-color-primary);
+  margin-right: 8px;
+}
+
+ion-menu ion-item.selected {
+  --background: var(--ion-color-primary-contrast);
+  --color: var(--ion-color-primary);
+  font-weight: bold;
+}
+
+ion-menu ion-toolbar {
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-primary-contrast);
+} 

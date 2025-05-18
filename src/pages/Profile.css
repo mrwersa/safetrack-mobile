@@ -1,0 +1,34 @@
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0 2rem 0;
+  text-align: center;
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1rem;
+}
+
+.profile-header h2 {
+  margin: 0 0 0.5rem 0;
+  font-weight: bold;
+}
+
+.profile-header p {
+  margin: 0;
+  color: var(--ion-color-medium);
+}
+
+.version-info {
+  width: 100%;
+  text-align: center;
+  color: var(--ion-color-medium);
+}
+
+.logout-button-container {
+  margin: 2rem 0;
+  padding: 0 1rem;
+}

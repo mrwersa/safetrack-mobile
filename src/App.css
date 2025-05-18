@@ -1,0 +1,99 @@
+/* App container */
+ion-app {
+  background: var(--ion-background-color);
+}
+
+/* Header */
+ion-header ion-toolbar {
+  --background: var(--ion-background-color);
+  --border-color: var(--ion-border-color);
+}
+
+ion-title {
+  font-size: var(--safe-track-font-size-lg);
+  font-weight: var(--safe-track-font-weight-bold);
+}
+
+/* Content */
+ion-content {
+  --background: var(--ion-background-color);
+}
+
+.emergency-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--safe-track-spacing-md);
+  padding-bottom: 120px; /* Space for panic button */
+}
+
+/* Quick Actions Pull Tab */
+.quick-actions-pull-tab {
+  background: var(--ion-background-color);
+  border-radius: var(--safe-track-border-radius) var(--safe-track-border-radius) 0 0;
+  padding: var(--safe-track-spacing-sm) var(--safe-track-spacing-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--safe-track-spacing-xs);
+  box-shadow: var(--safe-track-shadow-md);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.quick-actions-pull-tab:active {
+  background-color: var(--ion-color-light);
+}
+
+.pull-indicator {
+  width: 36px;
+  height: 4px;
+  background: var(--ion-color-medium);
+  border-radius: 2px;
+  opacity: 0.5;
+}
+
+.quick-actions-pull-tab span {
+  font-size: var(--safe-track-font-size-sm);
+  color: var(--ion-color-medium);
+  font-weight: var(--safe-track-font-weight-medium);
+}
+
+/* Modal */
+.quick-actions-modal {
+  --height: auto;
+  --width: 100%;
+}
+
+.quick-actions-modal::part(content) {
+  border-radius: var(--safe-track-border-radius) var(--safe-track-border-radius) 0 0;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .quick-actions-pull-tab {
+    background: var(--ion-background-color);
+  }
+
+  .quick-actions-pull-tab:active {
+    background-color: rgba(var(--ion-color-light-rgb), 0.1);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .quick-actions-pull-tab {
+    transition: none;
+  }
+}
+
+/* High contrast mode */
+@media (forced-colors: active) {
+  .pull-indicator {
+    background: ButtonText;
+  }
+
+  .quick-actions-pull-tab {
+    border: 1px solid ButtonBorder;
+  }
+} 

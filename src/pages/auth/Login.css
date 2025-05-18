@@ -1,0 +1,80 @@
+.login-container {
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+.login-button {
+  margin-top: 1.5rem;
+}
+
+.error-message {
+  font-size: 0.8rem;
+  padding-left: 1rem;
+  padding-top: 0.3rem;
+}
+
+.social-login-divider {
+  text-align: center;
+  margin: 24px 0;
+  position: relative;
+}
+
+.social-login-divider::before,
+.social-login-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: calc(50% - 30px);
+  height: 1px;
+  background-color: var(--ion-color-medium);
+}
+
+.social-login-divider::before {
+  left: 0;
+}
+
+.social-login-divider::after {
+  right: 0;
+}
+
+.social-login-divider span {
+  background-color: var(--ion-background-color);
+  padding: 0 10px;
+  color: var(--ion-color-medium);
+  font-size: 14px;
+}
+
+.social-login-button {
+  --background: var(--ion-color-light);
+  --color: var(--ion-color-dark);
+  --box-shadow: none;
+  margin: 0;
+}
+
+.social-login-button.google {
+  --background: #ffffff;
+  --color: #757575;
+  border: 1px solid #dadce0;
+}
+
+.social-login-button.facebook {
+  --background: #1877f2;
+  --color: #ffffff;
+}
+
+.social-login-button ion-icon {
+  font-size: 20px;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .social-login-button.google {
+    --background: #303030;
+    --color: #ffffff;
+    border-color: #424242;
+  }
+  
+  .social-login-divider span {
+    background-color: var(--ion-background-color);
+  }
+}
