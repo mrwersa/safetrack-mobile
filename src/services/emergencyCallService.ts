@@ -3,19 +3,17 @@ import { Geolocation } from '@capacitor/geolocation';
 import { Device } from '@capacitor/device';
 import { TextToSpeech } from '@capacitor-community/text-to-speech';
 import api from '../utils/api';
-
-interface EmergencyNumber {
-  country: string;
-  police: string;
-  ambulance: string;
-  fire: string;
-  general: string;
-}
+import { EmergencyNumber, EmergencyServiceType, EmergencyState } from '../types/emergency';
 
 class EmergencyCallService {
   private emergencyNumbers: EmergencyNumber[] = [];
   private currentCountry: string = '';
   private isInCall: boolean = false;
+  private emergencyState: EmergencyState = {
+    isActive: false,
+    type: 'general',
+    notifiedContacts: []
+  };
 
   constructor() {
     this.loadEmergencyNumbers();
@@ -68,22 +66,11 @@ class EmergencyCallService {
    */
   private async detectCountry(): Promise<void> {
     try {
-      const position = await Geolocation.getCurrentPosition();
-      const response = await api.get(
-        `/geocode?lat=${position.coords.latitude}&lon=${position.coords.longitude}`
-      );
-      this.currentCountry = response.data.country_code;
+      const language = await Device.getLanguageCode();
+      this.currentCountry = language.value.split('-')[1] || 'US';
     } catch (error) {
       console.error('Error detecting country:', error);
-      
-      // Fallback to device locale
-      try {
-        const info = await Device.getLanguageCode();
-        this.currentCountry = info.value.split('-')[1] || 'US';
-      } catch (localeError) {
-        console.error('Error getting device locale:', localeError);
-        this.currentCountry = 'US'; // Default to US
-      }
+      this.currentCountry = 'US'; // Default to US
     }
   }
 
@@ -91,17 +78,15 @@ class EmergencyCallService {
    * Get emergency numbers for current country
    */
   private getLocalEmergencyNumbers(): EmergencyNumber {
-    return (
-      this.emergencyNumbers.find(n => n.country === this.currentCountry) ??
-      this.emergencyNumbers.find(n => n.country === 'US') ?? // Fallback to US
-      {
-        country: 'US',
-        police: '911',
-        ambulance: '911',
-        fire: '911',
-        general: '911'
-      }
-    );
+    const defaultNumbers: EmergencyNumber = {
+      country: 'US',
+      police: '911',
+      ambulance: '911',
+      fire: '911',
+      general: '911'
+    };
+
+    return this.emergencyNumbers.find(n => n.country === this.currentCountry) || defaultNumbers;
   }
 
   /**
@@ -207,7 +192,7 @@ class EmergencyCallService {
   /**
    * Get emergency number for a specific type
    */
-  async getEmergencyNumber(type: 'police' | 'ambulance' | 'fire' | 'general' = 'general'): Promise<string> {
+  async getEmergencyNumber(type: EmergencyServiceType = 'general'): Promise<string> {
     const numbers = this.getLocalEmergencyNumbers();
     return numbers[type];
   }

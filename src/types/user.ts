@@ -1,7 +1,9 @@
 export interface User {
   id: string;
-  name: string;
+  username: string;
   email: string;
+  firstName?: string;
+  lastName?: string;
   displayName?: string;
   photoURL?: string;
   phoneNumber?: string;
@@ -17,6 +19,23 @@ export interface EmergencyContact {
   email?: string;
   relationship?: string;
   priority: number;
+  status: EmergencyContactStatus;
+  notifySos: boolean;
+  notifyGeofence: boolean;
+  notifyInactivity: boolean;
+  notifyLowBattery: boolean;
+  notes?: string;
+  acceptedAt?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export enum EmergencyContactStatus {
+  PENDING = 'PENDING',
+  ACTIVE = 'ACTIVE',
+  DECLINED = 'DECLINED',
+  REVOKED = 'REVOKED',
+  EXPIRED = 'EXPIRED'
 }
 
 export interface UserPreferences {
